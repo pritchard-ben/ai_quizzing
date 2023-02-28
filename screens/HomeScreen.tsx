@@ -13,6 +13,8 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import QuizScreen from "./QuizScreen";
 
+// import { OPENAI_API_KEY } from "@env";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -84,8 +86,11 @@ const HomeScreen = () => {
   );
   async function handleGetQuestions(topic) {
     try {
+      // const { Configuration, OpenAIApi } = require("openai-api");
+
       const configuration = new Configuration({
         apiKey: process.env.OPENAI_API_KEY,
+        organization: process.env.OPENAI_ORG,
       });
       const promptString =
         'Write 10 multiple-choice quiz questions about the topic "' +
@@ -95,19 +100,20 @@ const HomeScreen = () => {
       const headers = {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       };
-      console.log(process.env.OPENAI_API_KEY);
+      // console.log(process.env.OPENAI_API_KEY);
       const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: promptString as string,
         max_tokens: 500,
         temperature: 0.2,
       });
-      console.log(response);
+
+      // console.log(response.data.choices);
+
       setQuestions(response.data.choices as unknown as string);
       console.log(questions);
     } catch (error) {
       console.log(error);
-
       alert(error);
     }
   }
