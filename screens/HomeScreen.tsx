@@ -95,7 +95,7 @@ const HomeScreen = () => {
       const promptString =
         'Write 10 multiple-choice quiz questions about the topic "' +
         topic +
-        '", giving your answer in JSON format';
+        '", giving your answer in JSON format with two incorrect answers and one correct";
       const openai = new OpenAIApi(configuration);
       const headers = {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
