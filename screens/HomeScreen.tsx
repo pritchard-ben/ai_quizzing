@@ -13,8 +13,6 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import QuizScreen from "./QuizScreen";
 
-// import { OPENAI_API_KEY } from "@env";
-
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -86,8 +84,6 @@ const HomeScreen = () => {
   );
   async function handleGetQuestions(topic) {
     try {
-      // const { Configuration, OpenAIApi } = require("openai-api");
-
       const configuration = new Configuration({
         apiKey: process.env.OPENAI_API_KEY,
         organization: process.env.OPENAI_ORG,
