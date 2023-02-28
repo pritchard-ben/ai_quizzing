@@ -42,10 +42,21 @@ const HomeScreen = () => {
           borderRadius: 6,
           marginTop: 15,
           alignItems: "center",
-          onPress: () => console.warn("Submit Topic"),
         }}
       >
         <Text style={{ color: "white" }}>Submit Topic</Text>
+      </Pressable>
+
+      <Pressable
+        style={{
+          backgroundColor: "green",
+          padding: 10,
+          borderRadius: 6,
+          marginTop: 15,
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ color: "white" }}>Start Quiz</Text>
       </Pressable>
     </View>
   );
