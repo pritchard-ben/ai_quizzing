@@ -1,7 +1,10 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ padding: 10 }}>
       <Text
@@ -48,6 +51,7 @@ const HomeScreen = () => {
       </Pressable>
 
       <Pressable
+        onPress={() => navigation.navigate("Quiz")}
         style={{
           backgroundColor: "green",
           padding: 10,
